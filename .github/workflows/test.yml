@@ -21,4 +21,4 @@ jobs:
       - name: Run tests
         run: node --test
       - name: Verify icon PNGs are valid PNG files
-        run: for f in icons/*.png; do head -c 8 "$f" | grep -q $'\x89PNG' || (echo "bad png: $f" && exit 1); done
+        run: for f in icons/*.png; do sig=$(head -c 8 "$f" | od -An -tx1 | tr -d ' \n'); [ "$sig" = "89504e470d0a1a0a" ] || (echo "bad png: $f" && exit 1); done

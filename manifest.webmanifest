@@ -1,0 +1,14 @@
+{
+  "name": "Tech Helper — Senior Tech Support",
+  "short_name": "Tech Helper",
+  "description": "Big-button voice and camera tech support for seniors.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#1a5cff",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

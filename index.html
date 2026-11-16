@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tech Helper</title>
+<meta name="description" content="Big-button voice and camera tech support for seniors.">
+<meta name="theme-color" content="#1a5cff">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/styles.css">
+<script src="config.js" defer onerror="this.remove()"></script>
+</head>
+<body>
+<header class="topbar">
+  <h1>🤝 Tech Helper</h1>
+  <button id="sound-toggle" class="chip" type="button" aria-pressed="true">🔊 Sound on</button>
+</header>
+
+<main id="main">
+  <section id="screen-home" class="screen" aria-label="Home">
+    <p id="home-status" class="status" aria-live="polite">👋 Hi! What can I help you with today?</p>
+    <div class="big-actions">
+      <button id="btn-talk" class="btn btn-primary btn-huge" type="button">
+        <span class="btn-emoji" aria-hidden="true">🎤</span><span>Talk to me</span>
+      </button>
+      <button id="btn-camera" class="btn btn-huge" type="button">
+        <span class="btn-emoji" aria-hidden="true">📷</span><span>Show a photo</span>
+      </button>
+    </div>
+    <p class="label">Or tap a topic:</p>
+    <div id="topic-grid" class="topics"></div>
+  </section>
+
+  <section id="screen-flow" class="screen hidden" aria-label="Step by step help">
+    <h2 id="flow-title" class="flow-title"></h2>
+    <div id="flow-emoji" class="flow-emoji" aria-hidden="true"></div>
+    <p id="flow-text" class="flow-text" aria-live="polite"></p>
+    <ul id="flow-bullets" class="flow-bullets"></ul>
+    <div id="flow-options" class="flow-options"></div>
+    <div class="row">
+      <button id="btn-repeat" class="btn btn-small" type="button">🔁 Say it again</button>
+      <button id="btn-flow-home" class="btn btn-small" type="button">🏠 Start over</button>
+    </div>
+  </section>
+
+  <section id="screen-camera" class="screen hidden" aria-label="Camera">
+    <div id="camera-live">
+      <video id="camera-video" autoplay playsinline muted></video>
+      <button id="btn-snap" class="btn btn-primary" type="button">📸 Take photo</button>
+      <p class="note">Point the camera at your TV, remote, or the error message.</p>
+    </div>
+    <div id="camera-preview" class="hidden">
+      <img id="camera-img" alt="Photo you just took">
+      <div class="row">
+        <button id="btn-retake" class="btn" type="button">🔁 Retake</button>
+        <button id="btn-analyze" class="btn btn-primary" type="button">🔍 What is this?</button>
+      </div>
+      <p id="camera-result" class="flow-text" aria-live="polite"></p>
+    </div>
+    <button id="btn-camera-back" class="btn btn-small" type="button">⬅ Back</button>
+  </section>
+
+  <div id="listen-overlay" class="overlay hidden" role="dialog" aria-label="Listening">
+    <div class="overlay-card">
+      <div class="listen-mic" aria-hidden="true">🎤</div>
+      <p id="listen-text" class="listen-text" aria-live="polite">Listening…</p>
+      <button id="btn-listen-stop" class="btn btn-primary" type="button">⏹ Stop</button>
+    </div>
+  </div>
+
+  <div id="type-overlay" class="overlay hidden" role="dialog" aria-label="Type your question">
+    <div class="overlay-card">
+      <p class="listen-text">⌨️ Type what you need help with:</p>
+      <input id="type-input" class="type-input" type="text" autocomplete="off" placeholder="e.g. my TV won't turn on">
+      <div class="row">
+        <button id="btn-type-send" class="btn btn-primary" type="button">✅ Go</button>
+        <button id="btn-type-cancel" class="btn" type="button">⬅ Cancel</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="bottombar">
+  <a id="btn-call" class="btn btn-call" href="#">📞 Call my family</a>
+  <p class="privacy">🔒 Nothing you say or show is saved. This app never asks for or stores passwords.</p>
+</footer>
+
+<script src="js/content.js" defer></script>
+<script src="js/engine.js" defer></script>
+<script src="js/voice.js" defer></script>
+<script src="js/camera.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>

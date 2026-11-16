@@ -57,7 +57,7 @@ js/voice.js                 speech recognition + speech synthesis wrapper
 js/camera.js                camera capture + optional vision call
 js/app.js                   UI wiring
 manifest.webmanifest, sw.js  installable PWA + offline cache
-icons/icon.svg              app icon (run `node scripts/make-icons.js` to also generate PNG icons for iOS/Android and add them to the manifest)
+icons/                      app icons (SVG + PNGs; regenerate PNGs with `node scripts/make-icons.js`)
 config.example.js           optional local config template (config.js is gitignored)
 examples/vision-server.example.js  optional example vision endpoint (loopback only)
 test/                       node --test suites

@@ -68,8 +68,10 @@ test/                       node --test suites
 ```bash
 node --check js/app.js && node --check js/content.js && node --check js/engine.js \
   && node --check js/voice.js && node --check js/camera.js && node --check sw.js
-node --test
+node --test test/*.test.js
 ```
+
+(The glob matters: bare `node --test` also discovers the TanStack app's bun-based tests under `app/`, which node cannot run.)
 
 The tests verify the content graph is valid, voice phrases route to the right flow, and — as a safety invariant — that no step ever asks the user to enter a password into the app.
 

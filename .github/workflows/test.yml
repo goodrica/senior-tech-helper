@@ -22,7 +22,7 @@ jobs:
             node --check "$f" || exit 1
           done
       - name: Run tests
-        run: node --test
+        run: node --test test/*.test.js
       - name: Verify icon PNGs are valid PNG files
         run: |
           for f in icons/*.png; do
